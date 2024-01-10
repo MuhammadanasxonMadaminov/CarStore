@@ -7,38 +7,48 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DB {
-    private static final List<UserBean> users = new ArrayList<>();
-    private static final List<CarBean> cars = new ArrayList<>();
+    public static UserBean session=null;
+    private static final List<UserBean> USER_BEANS =new ArrayList<>();
+    private static final List<CarBean> CAR_BEANS =new ArrayList<>();
 
+    public static UserBean addUser(UserBean userBean){
+        //TODO
 
-    public static UserBean addUser(UserBean bean){
-        if(checkUserExistByLogin(bean.getLogin())){
-            return null;
-        }
-        bean.setId(users.size());
-        users.add(bean);
-        return bean;
+        return null;
+    }
+
+    public static UserBean getUser(UserBean userBean){
+        //TODO
+
+        return null;
     }
 
     public static boolean checkUserExistByLogin(String login){
-        for(UserBean user:users){
-            if(user.getLogin().equals(login)){
-                return true;
-            }
-        }
 
         return false;
     }
 
-    public static UserBean getUser(UserBean bean){
 
-        for(UserBean user:users){
-            if(user.getLogin().equals(bean.getLogin())&&user.getPassword().equals(bean.getPassword())){
-                return user;
-            }
-        }
+    public static CarBean addCar(CarBean carBean){
+        //TODO
 
         return null;
+    }
+
+    public static List<CarBean> getMyCars(Integer userId){
+        //TODO
+
+        return null;
+    }
+
+    public static List<CarBean> getAvailableCars(){
+        //TODO
+
+        return null;
+    }
+
+    public static List<CarBean> showAllCars(){
+        return CAR_BEANS;
     }
 
 }

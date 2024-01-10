@@ -1,5 +1,5 @@
 package bean;
 
-public class BaseIdBean {
+public class ApiResponse {
     //TODO:
 }
