@@ -1,5 +1,16 @@
 package bean;
 
 public class BaseIdBean {
-    //TODO:
+    private Integer id;
+
+    public BaseIdBean() {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 }
