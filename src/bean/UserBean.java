@@ -47,4 +47,11 @@ public class UserBean extends BaseIdBean{
         this.balance = balance;
     }
 
+    public UserRole getUserRole() {
+        return userRole;
+    }
+
+    public void setUserRole(UserRole userRole) {
+        this.userRole = userRole;
+    }
 }
