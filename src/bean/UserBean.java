@@ -1,9 +1,12 @@
 package bean;
 
+import UserRole.UserRole;
+
 public class UserBean extends BaseIdBean{
     private String username;
     private String password;
     private Double balance;
+    private UserRole userRole;
 
 
     public UserBean() {
@@ -43,4 +46,5 @@ public class UserBean extends BaseIdBean{
     public void setBalance(Double balance) {
         this.balance = balance;
     }
+
 }
