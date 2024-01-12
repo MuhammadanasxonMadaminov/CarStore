@@ -1,15 +1,19 @@
 import UserRole.UserRole;
 import bean.ApiResponse;
+import bean.CarBean;
 import bean.UserBean;
 import db.DB;
+import resource.CarResource;
 import resource.UserResource;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     static Scanner scannerNum = new Scanner(System.in);
     static Scanner scannerStr = new Scanner(System.in);
     static UserResource userResource = new UserResource();
+    static CarResource carResource = new CarResource();
 
     public static void main(String[] args) {
         showMainMenu();
@@ -135,9 +139,31 @@ public class Main {
                 DB.session = null;
             }
             case 1 -> {
+                ApiResponse myCars = carResource.getMyCars(DB.session.getId());
+                List<CarBean> data = (List<CarBean>) myCars.getData();
 
+                if (myCars.getCode() == 200){
+                    System.out.println("****************************");
+                    for (CarBean value : data) {
+                        System.out.println(value);
+                    }
+                    System.out.println("****************************");
+                }else {
+                    System.out.println("car not found");
+                }
             }
             case 2 -> {
+                ApiResponse availableCars = carResource.getAvailableCars();
+                List<CarBean> availableCarsData = (List<CarBean>) availableCars.getData();
+                if (availableCars.getCode() == 200){
+                    System.out.println("****************************");
+                    for (CarBean value : availableCarsData) {
+                        System.out.println(value);
+                    }
+                    System.out.println("****************************");
+                }else {
+                    System.out.println("available cars not in car store");
+                }
 
             }
             case 3 -> {

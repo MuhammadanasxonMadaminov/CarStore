@@ -39,6 +39,7 @@ public class DB {
         userBean.setId(userID++);
         userBean.setUserRole(UserRole.USER);
         USER_BEANS.add(userBean);
+        userBean.setBalance(1000d);
         return userBean;
     }
 
