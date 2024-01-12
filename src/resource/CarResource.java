@@ -31,5 +31,14 @@ public class CarResource {
 
         return new ApiResponse(carBeans == null ? 401 : 200,carBeans == null ? "error":"success",carBeans);
     }
+    public ApiResponse delete(Integer carId){
+        boolean b = DB.deleteCar(carId);
+        if (b){
+            System.out.println("success");
+        }else {
+            System.out.println("error");
+        }
+        return null;
+    }
 
 }

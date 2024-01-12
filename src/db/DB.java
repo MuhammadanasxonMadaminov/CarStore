@@ -83,6 +83,22 @@ public class DB {
         return CAR_BEANS;
     }
 
+    public static boolean deleteCar(Integer carId){
+        CarBean car = getCar(carId);
+        if (car == null){
+            return false;
+        }
+        CAR_BEANS.remove(car);
+        return true;
+    }
+    public static CarBean getCar(Integer id){
+        for (CarBean carBean : CAR_BEANS) {
+            if (carBean.getId().equals(id)){
+                return carBean;
+            }
+        }
+        return null;
+    }
 
 
 }

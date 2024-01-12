@@ -103,16 +103,29 @@ public class Main {
                 DB.session = null;
             }
             case 1 -> {
+                scannerStr = new Scanner(System.in);
+                System.out.print("car name: ");
+                String carName = scannerStr.next();
+                System.out.print("car color: ");
+                String carColor = scannerStr.next();
+                System.out.print("car price: ");
+                Double carPrice = scannerNum.nextDouble();
 
+                ApiResponse apiResponse = carResource.create(new CarBean(carName, carColor, true, carPrice, null));
+                System.out.println(apiResponse.getMessage());
             }
             case 2 -> {
+                showAllCars();
+                System.out.print("enter car id: ");
+                int cardId = scannerNum.nextInt();
+                carResource.delete(cardId);
 
             }
             case 3 -> {
 
             }
             case 4 -> {
-
+                showAllCars();
             }
             case 5 -> {
                 System.out.println("bye👋");
@@ -123,6 +136,20 @@ public class Main {
             }
         }
         showMainMenu();
+    }
+
+    private static void showAllCars() {
+        ApiResponse apiResponse = carResource.showAllCars();
+        List<CarBean> allCars = (List<CarBean>) apiResponse.getData();
+        if (apiResponse.getCode() == 200){
+            System.out.println("****************************");
+            for (CarBean allCar : allCars) {
+                System.out.println(allCar);
+            }
+            System.out.println("****************************");
+        }else {
+            System.out.println("cars not found");
+        }
     }
 
     private static void userPage() {
