@@ -15,8 +15,6 @@ public class Main {
         showMainMenu();
     }
 
-
-    //    TODO:
     private static void showMainMenu() {
         if (DB.session == null) {
             registerAndLogin();
@@ -43,7 +41,6 @@ public class Main {
         showMainMenu();
     }
 
-    //    TODO:
     private static void register() {
         UserBean newUserBean = new UserBean();
         System.out.print("What is your user name: ");
