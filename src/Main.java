@@ -214,6 +214,7 @@ public class Main {
             carById.setUserId(null);
             double userBalance = DB.session.getBalance();
             userBalance += carById.getPrice();
+            DB.session.setBalance(userBalance);
             System.out.println("\nsuccessfully sell a car✅");
             System.out.println("you have "+userBalance+" money\n");
 
@@ -233,6 +234,7 @@ public class Main {
             carById.setUserId(DB.session.getId());
             double userBalance = DB.session.getBalance();
             userBalance -= carById.getPrice();
+            DB.session.setBalance(userBalance);
             System.out.println("\nsuccessfully buy a car✅");
             System.out.println("you have "+userBalance+" money\n");
 
